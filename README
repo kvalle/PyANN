@@ -1,0 +1,8 @@
+** PyANN
+** Generic Artificial Neural Network Framework in Python
+
+This is a general framework for creating neural nets, through the use of script files and case files.
+
+Script files define the neural net you want to create. A case file contains optional training and testing data.
+
+Documentation is non-existent, so take a look at the examples in the annlib/scripts and annlib/cases folders.

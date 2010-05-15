@@ -1,0 +1,41 @@
+layers:
+
+  input:
+    size: 2
+    activation_function: linear
+    bias_node: true
+  
+  hidden:
+    size: 2
+    activation_function: logistic
+    bias_node: true
+  
+  output:
+    size: 2
+    activation_function: linear
+
+links:
+
+  input_hidden: 
+    pre: input
+    post: hidden
+    connection_type: full
+    display: false
+    weights:
+      - 0.3
+      - 0.7
+    
+  hidden_output:
+    pre: hidden
+    post: output
+    connection_type: full
+    display: false
+    weights:
+      - 0.3
+      - 0.7
+
+order:
+  - input
+  - hidden
+  - output
+

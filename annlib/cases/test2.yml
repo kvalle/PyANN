@@ -1,0 +1,25 @@
+class: text
+script: test2
+
+tasks:
+  
+  - mode: training-backpropagation
+    epochs: 1000
+    input:
+      - '1 1 1'
+      - '0 0 0'
+      - '-1 -1 -1'
+    output:
+      - '-1'
+      - '1'
+      - '-1'
+  
+  - mode: testing
+    input:
+      - '1 1 1'
+      - '0 0 0'
+      - '-1 -1 -1'
+    output:
+      - '-1'
+      - '1'
+      - '-1'

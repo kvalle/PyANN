@@ -1,0 +1,29 @@
+layer:
+  name: default
+  size: 10                     # number of nodes
+  activation_function: linear  # linear, positive_linear, step, logistic, tanh
+  step_threshold: 0.5          # if step activation function is used
+  quiescent_threshold: 0.1     # quiescent mode threshold
+  max_rounds: 20               # maximum rounds before settling
+  quiescence: true
+  learning_mode: false
+  bias_node: false
+  training:
+    quiescence: true
+    is_active: true
+  testing:
+    quiescence: true
+    is_active: true
+
+link:
+  name: default
+  plastic: false
+  connection_type: full
+  weights: 0.5
+  learning_rule: oja
+  learning_rate: 0.1
+  stochastic_p: 0.5
+  theta: 0.5
+  display: false
+  custom: false
+  

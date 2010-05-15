@@ -1,0 +1,104 @@
+name: associative
+
+layers:
+
+  input:
+    size: 4
+    activation_function: linear
+    learning_mode: false
+    quiescence: false
+  
+  inhibitory:
+    size: 1
+    activation_function: step
+    learning_mode: false
+    training:
+      is_active: false
+
+  associative:
+    size: 4
+    activation_function: logistic
+    step_threshold: 0.5
+    learning_mode: true
+    training:
+      quiescence: false
+
+  output:
+    size: 4
+    activation_function: linear
+    step_threshold: 0.5
+    learning_mode: false
+    
+    
+links:
+  in_inhib: 
+    pre: input
+    post: inhibitory
+    plastic: false
+    connection_type: custom
+    weights: 1.0
+    display: true
+    custom:
+      - '1.0 1.0 1.0 1.0'
+
+  in_assoc: 
+    pre: input
+    post: associative
+    plastic: false
+    connection_type: custom
+    weights: 1.0
+    display: true
+    custom:
+      - '1.0 x   x   x  '
+      - 'x   1.0 x   x  '
+      - 'x   x   1.0 x  '
+      - 'x   x   x   1.0'
+    
+  inhib_assoc:
+    pre: inhibitory
+    post: associative
+    plastic: false
+    connection_type: custom
+    weights: -1.0
+    display: true
+    custom:
+      - '1.0'
+      - '1.0'
+      - '1.0'
+      - '1.0'      
+             
+  assoc_rec:
+    pre: associative
+    post: associative
+    plastic: true
+    connection_type: custom
+    learning_rule: general_hebb
+    learning_rate: 0.1
+    theta: 0.5
+    display: true
+    custom:
+      - '1.0 1.0 1.0 1.0'
+      - '1.0 1.0 1.0 1.0'
+      - '1.0 1.0 1.0 1.0'
+      - '1.0 1.0 1.0 1.0'
+
+  assoc_out:
+    pre: associative
+    post: output
+    plastic: false
+    connection_type: custom
+    weights: 1.0
+    display: true    
+    custom:
+      - '1.0 x   x   x  '
+      - 'x   1.0 x   x  '
+      - 'x   x   1.0 x  '
+      - 'x   x   x   1.0'
+    
+
+order:
+  - input
+  - inhibitory
+  - associative
+  - output
+

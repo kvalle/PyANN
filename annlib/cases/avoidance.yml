@@ -1,0 +1,69 @@
+class: webot
+script: avoidance
+
+tasks:
+  
+  - mode: training-backpropagation
+    epochs: 10000
+    error_threshold: 0.0001
+    input:
+      - '0 0 0 0 0 0' # no walls
+      
+      - '1 0 0 0 0 0' # left side wall
+      - '1 1 0 0 0 0' # left side, left wall
+      - '0 1 1 0 0 0' # left, front wall
+      
+      - '0 0 1 1 0 0' # front wall
+      - '0 1 1 1 1 0' # corner
+      - '1 1 1 1 1 1' # hypercorner
+      
+      - '0 0 0 1 1 0' # right, front wall
+      - '0 0 0 0 1 1' # right, right side wall
+      - '0 0 0 0 0 1' # right side wall
+      
+    output:
+      - '0 0'
+      
+      - '1 .7'
+      - '1 .5'
+      - '1 -.3'
+      
+      - '1 -1'  
+      - '1 -1'
+      - '1 -1' 
+      
+      - '-.3 1'
+      - '.5 1'
+      - '.7 1'
+  
+  - mode: testing
+    input:
+      - '0 0 0 0 0 0' # no walls
+      
+      - '1 0 0 0 0 0' # left side wall
+      - '1 1 0 0 0 0' # left side, left wall
+      - '0 1 1 0 0 0' # left, front wall
+      
+      - '0 0 1 1 0 0' # front wall
+      - '0 1 1 1 1 0' # corner
+      - '1 1 1 1 1 1' # hypercorner
+      
+      - '0 0 0 1 1 0' # right, front wall
+      - '0 0 0 0 1 1' # right, right side wall
+      - '0 0 0 0 0 1' # right side wall
+      
+    output:
+      - '0 0'
+      
+      - '1 .7'
+      - '1 .5'
+      - '1 -.3'
+      
+      - '1 -1'  
+      - '1 -1'
+      - '1 -1' 
+      
+      - '-.3 1'
+      - '.5 1'
+      - '.7 1'
+    

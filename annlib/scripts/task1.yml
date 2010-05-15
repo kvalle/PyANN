@@ -1,0 +1,50 @@
+layers:
+
+  input:
+    size: 10
+    activation_function: linear
+    learning_mode: false
+    quiescence: false
+  
+  associative:
+    size: 10
+    activation_function: hopfield
+
+  output:
+    size: 10
+    activation_function: linear
+    quiescence: false
+
+links:
+
+  in_assoc: 
+    pre: input
+    post: associative
+    plastic: false
+    connection_type: one_to_one
+    weights: 1.0
+    display: true
+    
+  assoc_rec:
+    pre: associative
+    post: associative
+    plastic: true
+    connection_type: triangular
+    learning_rule: oja
+    learning_rate: 0.1
+    weights: 0.0
+    display: true
+
+  assoc_out:
+    pre: associative
+    post: output
+    plastic: false
+    connection_type: one_to_one
+    weights: 1.0
+    display: true
+
+order:
+  - input
+  - associative
+  - output
+

@@ -1,0 +1,26 @@
+class: text
+script: test1
+
+tasks:
+  
+  - mode: training-backpropagation
+    epochs: 10000
+    error_threshold: 0.001
+    input:
+      - '1 1 1'
+      - '0.5 0.5 0.5'
+      - '0 0 0'
+    output:
+      - '1 0'
+      - '0 1'
+      - '1 1'
+  
+  - mode: testing
+    input:
+      - '1 1 1'
+      - '0.5 0.5 0.5'
+      - '0 0 0'
+    output:
+      - '1 0'
+      - '0 1'
+      - '1 1'

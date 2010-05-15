@@ -1,0 +1,44 @@
+layers:
+
+  input:
+    size: 3
+    activation_function: linear
+    bias_node: true
+  
+  hidden:
+    size: 3
+    activation_function: tanh
+    bias_node: true
+  
+  output:
+    size: 1
+    activation_function: linear
+
+
+links:
+
+  input_hidden: 
+    pre: input
+    post: hidden
+    connection_type: full
+    display: true
+    learning_rate: 0.2
+    weights:
+      - -0.3
+      - 0.3
+    
+  hidden_output:
+    pre: hidden
+    post: output
+    connection_type: full
+    learning_rate: 0.2
+    display: true
+    weights:
+      - -0.3
+      - 0.3
+
+
+order:
+  - input
+  - hidden
+  - output

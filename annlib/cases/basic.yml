@@ -1,0 +1,31 @@
+class: webot
+script: basic
+
+tasks:
+  
+  - mode: training-backpropagation
+    epochs: 5000
+    error_threshold: 0.001
+    input:
+      - '0 0'
+      - '0 1'
+      - '1 0'
+      - '1 1'
+    output:
+      - '1 1'
+      - '0 1'
+      - '1 0'
+      - '1 0'
+  
+  - mode: testing
+    input:
+      - '0 0'
+      - '0 1'
+      - '1 0'
+      - '1 1'
+    output:
+      - '1 1'
+      - '0 1'
+      - '1 0'
+      - '1 0'
+    
