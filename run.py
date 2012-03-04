@@ -33,13 +33,16 @@ output = case.run(ann)
 # Report testing results
 if case.tasks and case.tasks[-1].is_testing():
     print 'Testing network:'
-    print 'given input', case.tasks[-1].input()
-    print 'expected output', case.tasks[-1].output()
-    print 'actual output', output
+    print 'given input'
+    print case.tasks[-1].input()
+    print 'expected output'
+    print case.tasks[-1].output()
+    print 'actual output'
+    print output
 
 # Display weights
-# for layer in ann.layers:
-#     layer.draw_links()
+#for layer in ann.layers:
+#    layer.draw_links()
 
 # Save network
-#ann.save(casename)
+ann.save(casename)
